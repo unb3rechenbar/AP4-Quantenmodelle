@@ -33,14 +33,17 @@
             \]
             wobei wir hier den Korrekturterm $T:=\hbar^2/(2m)$ einführen mussten. Für die Schrödinger Eigenwertgleichung gewinnen wir mit dieser Formulierung jedoch eine bessere Übersicht über die Struktur der Lösungen.
 
-
-
     \subsection{Aspekte der Quantenmechanik}
         Die allgemeine Form des zeitunabhängigen Schrödinger Eigenwertproblems ist für eine quadratintegrierbare, zweifach differenzierbare Funktion $\psi$ auf einer Teilmenge des Sobolevraum $H^2(\R)$ auf $\R$ gegeben durch
         \[
             H(\psi) := \frac{P^2(\psi)}{2m} + V(Q)(\psi) = E\cdot\psi,
         \]
-        mit dem Impulsoperator $\psi\mapsto P(\psi):=\bigl(-\cmath\hbar\cdot\dv{x}\psi(x)\bigr)_{x\in\R}$ und dem Ortsoperator $\psi\mapsto Q(\psi):=\bigl(\psi(x)\cdot x\bigr)_{x\in\R}$. Die reelle Zahl $E\in\sigma_P(H)$ im Punktspektrum von $H$ ist dabei die Energiebeschreibung des Systems.
+        mit dem Impulsoperator $\psi\mapsto P(\psi):=\bigl(-\cmath\hbar\cdot\dv{x}\psi(x)\bigr)_{x\in\R}$ und dem Ortsoperator $\psi\mapsto Q(\psi):=\bigl(\psi(x)\cdot x\bigr)_{x\in\R}$. Die reelle Zahl $E\in\sigma_P(H)$ im Punktspektrum von $H$ ist dabei die Energiebeschreibung des Systems. Um die Zustände und zugehörigen Eigenwerte besser zu klassifizieren, führt man die \emph{Quantenzahlen} in Kombination mit der \emph{Diracnotation} ein. Dabei stellt die erste Quantenzahl, auch \emph{Hauptquantenzahl} $n\in\N$ genannt, das Grundgerüst und entscheidet über die zulässigen Wertmengen der \emph{Drehimpulsquantenzahl} $l$ und der \emph{magnetischen Quantenzahl} $m_l$. Erstere stammt aus $\{0,..,n-1\}$, letztere aus $\{-l + n:n\in\N_0\}\cap[-l,l]$. Unter verschiedenen Effekten und Kopplungen erweitert sich das System auf die \emph{Spinquantenzahl} $s\in\{\pm 1/2\}$ und zugehörige \emph{magnetische Spinquantenzahl} $m_s\in\{-s + n:n\in\N_0\}\cap[-s,s]$ bzw. die \emph{Gesamtdrehimpulsquantenzahl} $j\in\{\abs{l-s} + n:n\in\N_0\}\cap[0,\abs{l+s}]$ und zugehörige \emph{magnetische Gesamtdrehimpulsquantenzahl} $m_j\in\{-j + n:n\in\N_0\}\cap[-j,j]$. Für Mehrelektronensysteme summiert man die Drehimpuls- und Spinquantenzahlen der einzelnen Elektronen zu $L$ und $S$ auf und definiert ferner die \emph{Kernspinquantenzahl} $I$ als Summe der Spinquantenzahlen der Nukleonen \cite{wiki:Quantenzahl}.
+
+        Die Diracnotation stellt eine Abzählung einer Orthonormalbasis des betrachteten Hilbertraumes $\mcH$ dar und ordnet den Quantenzahlen entsprechende Eigenvektoren zu. Beispielsweise wird ohne Spinbetrachtung die Form $\ket{n,l,m_l}$ als Eigenvektor zu $H\ket{n,l,m_l} = E_{n,l,m_l}\cdot\ket{n,l,m_l}$ aufgefasst \cite[p.48f]{git:IK4T}.
+
+
+    \subsection{Quantenmechanische Potentialmodelle}
         \subsubsection{Das freie Teilchen}
             % -> Schrödingergleichung
             Das Problem des freien Teilchen betrachtet den Fall $V:=0_{\R\to\R}$, also die Nullabbildung als Potential. Das Teilchen ist aus physikalischer Perspektive also im \emph{potentialfreien Raum}. Damit reduziert sich das zeitunabhängige Schrödinger Eigenwertproblem auf die Form 
@@ -58,10 +61,10 @@
                     k_{E,0}^2 & 0
                 \end{pmatrix}\cdot u(x),\quad u(x):=(\psi(x), \psi'(x))^T.
             \]
-            Es ergibt sich somit $\chi_A(X) = X^2 - k_{E,0}^2$ und damit die Eigenwerte $\{\pm k_{E,0}\}$, welche wieder als Exponentialargumente des Fundamentalsystems $\{\exp(k_{E,0}\cdot x), \exp(-k_{E,0}\cdot x)\}$ auffassbar sind. Die allgemeine Lösung ist somit wieder eine Linearkombination mit Koordinaten $c\in\R^2$. 
+            Es ergibt sich somit $\chi_A(X) = X^2 - k_{E,0}^2$ und damit die Eigenwerte $\{\pm k_{E,0}\}$, welche wieder als Exponentialargumente des Fundamentalsystems $\{\exp(k_{E,0}\cdot x), \exp(-k_{E,0}\cdot x)\}$ auffassbar sind. Die allgemeine Lösung ist somit wieder eine Linearkombination mit Koordinaten $c\in\R^2$ \cite[p.28f,p.38ff]{git:IK4T,junk:Ana3}.
             
 
-        \subsubsection{Das Potentialtopf-Modell}
+        \subsubsection{Stückweise konstante Potentiale}
             % -> Erweiterung der Schrödingergleichung um ein Potential
             Die Schrödinger Eigenwertgleichung besitzt noch einen bisher nicht ausgespielten Freiheitsgrad des Potentials. Auf einer stückweise konstanten Potentialfunktion $V:\R\to\R$ mit Abschnitten $\R_{<a},[a,b],\R{>b}$ mit $a<b\in\R$ lassen sich die jeweiligen charakterisierenden Funktionen aufstellen und Lösungen der resultierenden Formen 
             \[
@@ -96,7 +99,51 @@
             \end{multline*}
             Die Stetigkeit von $\Phi$ sorgt nun insgesamt für die Gleichheit zu Null, sodaß wir die Stetigkeitsbedingung aus $\int_{B_r(x_0)}\varphi''(t)\;dt = 0$ ernten können. 
 
-            Das Punktpotential der Form $V(x) = V_0\cdot\delta_{y}(x)$ mit $V_0\in\R$ und $y\in\R$ ist ein Spezialfall mit leicht verschiedenem Vorgehen: Man kann hier das Integral $\int_{B_r(y)}$ nicht wie oben aufteilen, sondern verwendet stattdessen die Definition des Punktmaßes und geht von $\int_{B_r(y)}V\cdot\varphi\;\uplamnda$ zu $\int_{B_r(y)}V\cdot\varphi\;\delta_y := V_0\cdot\varphi(y)$ über (wie legal das ganze ist, birgt mir bis heute Schleier). Dadurch ergibt sich eine Nicht-Null Bedingung für die Stetigkeit von $\varphi'$ an der Stelle $y$ der Form $\varphi'(y + r) - \varphi'(y - r) = -2m/\hbar^2\cdot (V_0\cdot\varphi(y))$.
+            Das Punktpotential der Form $V(x) = V_0\cdot\delta_{y}(x)$ mit $V_0\in\R$ und $y\in\R$ ist ein Spezialfall mit leicht verschiedenem Vorgehen: Man kann hier das Integral $\int_{B_r(y)}$ nicht wie oben aufteilen, sondern verwendet stattdessen die Definition des Punktmaßes und geht von $\int_{B_r(y)}V\cdot\varphi\;\uplamnda$ zu $\int_{B_r(y)}V\cdot\varphi\;\delta_y := V_0\cdot\varphi(y)$ über (wie legal das ganze ist, birgt mir bis heute Schleier). Dadurch ergibt sich eine Nicht-Null Bedingung für die Stetigkeit von $\varphi'$ an der Stelle $y$ der Form $\varphi'(y + r) - \varphi'(y - r) = -2m/\hbar^2\cdot (V_0\cdot\varphi(y))$ \cite{git:IK4T}. 
+
+        \subsubsection{Radiale Potentiale am Beispiel des Wasserstoffatoms}
+            Das Wasserstoffatom stellt durch sein radialsymmetrisches Coulombpotential für die Elementarladung $e$, die Permittivität des Vakuums $\epsilon_0$ und den Abstand $r$ vom Kern mit Ladung $e$ als 
+            \[
+                V:=\Bigl(\frac{e^2}{4\pi\epsilon_0\cdot r}\Bigr)_{r\in\R}
+            \]
+            ein Beispiel eines kontinuierlichen stückweise konstanten Potentials auf Kugelflächen $\partial B_r(0)\subseteq\R^3$ dar. Zur Lösung des Problems betrachtet man einen sehr viel schwereren Kern relativ zum Elektron, was physikalisch wegen $m_e\ll m_p$ plausibel ist. Dadurch lässt sich der Kern als stationär approximieren und eine Zerlegung der beschreibenden Wellenfunktion $\psi_{n,l,m_l}$ mit den Quantenzahlen $n,l,m_l$ ($n$ Hauptquantenzahl in $\N$, $l$ Drehimpulsquantenzahl in $\{0,..,n-1\}$ und $m_l$ magnetische Quantenzahl in $\{-l + n:n\in\N_0\}\cap[-l,l]$) in eine radiale und eine winkelabhängige Komponente vornehmen. Dies ist unter der Wahl des Kugelkoordinatensystems durch Transformation $f_K:\R^3\to\R^3$ mit $f_K(x) := \bigl(\dabs{x}{2}, \arccos(x_3/\dabs{x}_2), \arctan(x_2/x_1)\bigr)$ möglich. Hierdurch wird $\hat\psi_{n,l,m_l}:=\psi_{n,l,m_l}\circ f_K^{-1}$ in Kugelkoordinatendarstellung durch die sogenannte \emph{Kugelflächenfunktion} $(l,m_l)\mapsto Y(l,m_l)$ und die \emph{Radialfunktion} $(n,l)\mapsto R(n,l)$ im Produkt für einen Argumentvektor $(r,\vartheta,\varphi)\in\R_{>0}\times(-\pi,\pi)\times(0,\pi)$ zerlegt:
+            \[
+                \hat\psi_{n,l,m_l}(r,\vartheta,\varphi) = R_{n,l}(r)\cdot Y_{l,m_l}(\vartheta,\varphi).
+            \]
+            Dabei sind die Kugelflächenfunktionen bzw. die Radialfunktionen Lösungen eigenständiger Differentialgleichungen und selbst von komplizierter Form. Wir wollen hier nur kurz auf ihre Strukturen eingehen. Durch Ausführung der Verkettung mit der Kugelkoordinatentransformation $f_K$ erhält man aus dem originalen DGP der Form $\nabla^2 f(x) = 0$ (auch als Laplacegleichung bekannt) die additive Zerlegung
+            \[
+                d^2(f\circ f_K^{-1})(x)(1_{\R^3}) = d^2(f\circ f_K^{-1})(x)(1,0,0) + \frac{1}{r^2}\cdot d^2(f\circ f_K^{-1})(x)(0,1,1),
+            \]
+            wobei die Ableitungsdarstellung $d^2 f(x)(h)$ die zweifache Ableitung der Funktion $f$ an der Argumentstelle $x\in\Def(f)$ in Richtung $h\in\R^3$ mit $x+h\in\Def(f)$. Wir haben also anschaulich einen Anteil $\nabla^2_r f(x):=d^2(f\circ f_K^{-1})(x)(1,0,0)$ in \emph{radialer} und einen Anteil $\nabla^2_{\vartheta,\varphi} f(x):=d^2(f\circ f_K^{-1})(x)(0,1,1)$ in \emph{winkelabhängiger} Richtung. Durch Produktansatz lässt sich dann die jeweils nicht betrachtete Funktion linear aus der Ableitung herausziehen und zu der Form 
+            \[
+                \frac{r^2\cdot \nabla^2_r R_{n,l}(x)}{R_{n,l}(x)} + \frac{\nabla^2_{\vartheta,\varphi} Y_{l,m_l}(x)}{Y_{l,m_l}(x)} = 0
+            \]
+            bringen. Hier wählt man durch die Forderung der Unabhängigkeit der Argumente voneinander die Gleichheit der Summanden zu $l\cdot (l + 1)$ in weiser technischer Voraussicht. Daraus resultieren dann die funktionsdefinierenden DGPs
+            \[
+                \nabla^2_r R_{n,l}(x) = \frac{l\cdot (l + 1)}{r^2}\cdot R_{n,l}(x),\qquad \nabla^2_{\vartheta,\varphi} Y_{l,m_l}(x) = -l\cdot (l + 1)\cdot Y_{l,m_l}(x).
+            \]
+            \begin{shaded}
+                \noindent Für den Radialteil ergibt sich dann eine Lösung der Form
+                \[
+                    (n,l)\mapsto R_{n,l}(r) := \sqrt{
+                        \biggl(\frac{\rho_n(r)}{r}\biggr)^3\cdot\frac{(n - l - 1)!}{2\cdot n\cdot (n + l)!}
+                    }\cdot\exp(-\frac{\rho_n(r)}{2})\cdot\rho_n(r)^l\cdot \bigl(L_{n - l - 1}\circ\rho_n\bigr)^{2\cdot l + 1},
+                \]
+                wobei $a_0:=\hbar^2/(m_e\cdot e^2)$ den sogenannten \emph{Bohrschen Radius}, $\rho_n:=\bigl(2\cdot r/(n\cdot a_0)\bigr)$ eine Hilfsfunktion und $L_{n - l - 1}$ das \emph{Laguerrepolynom} bezeichnet. Die Laguerrepolynome sind dabei selbst Resultate des \emph{laguerreschen DGPs} $t\cdot u''(t) + (1-t)\cdot u'(t) + n\cdot u(t) = 0$ und durch $L_n(t) := \sum_{k\in\{0,..,n\}}\text{bin}(n,k)\cdot(-1)^k\cdot x^k/k!$ mit bin als Binomialkoeffizienten explizit gegeben. 
+
+                Andererseits ist der Winkelteil des DGPs lösbar durch die Kugelflächenfunktionen der Form
+                \[
+                    Y_{l,m_l}(\vartheta,\varphi) := \sqrt{\frac{(2\cdot l + 1)\cdot (l - m_l)!}{4\cdot\pi\cdot (l + m_l)!}}\cdot P_{l,m_l}(\cos(\vartheta))\cdot\exp(\cmath\cdot m_l\cdot\varphi),
+                \]
+                wobei $P_{l,m_l}$ selbst die $m_l$-ten Ableitungen der Legendrepolynome, gestaucht durch $x\mapsto (-1)^{m_l}\cdot(1-x^2)^{{m_l}/2}$ sind. Die Legendrepolynome sind wiederum Lösungen des \emph{legendreschen DGPs} $(1-t^2)\cdot u''(t) - 2\cdot t\cdot u'(t) + l\cdot (l + 1)\cdot u(t) = 0$ und gegeben durch die explizite Form $P_l(t) := \sum_{k\in\{0,..,\lfloor l/2\rfloor\}}(-1)^k\cdot(2l - 2k)!/\bigl((l - k)!\cdot (l - 2k)!\cdot k!\cdot 2^l\bigr)\cdot t^{l-2k}$ unter $\lfloor\cdot\rfloor$ als Abrundungsfunktion \cite{wiki:Laguerrepolynome,wiki:Kugelflaechenfunktionen,wiki:zugeordneteLegendrepolynome,wiki:Legendrepolynome,wiki:BohrRadius,git:IK4T}.
+            \end{shaded}
+            
+        \subsubsection{Periodisch radiale Potentiale am Beispiel kristallinier Festkörper}
+            Als Charakteristikum des kristallinen Festkörpers betrachten wir in einem festen Abstand $d$ befindliche Kerne mit Ladung $e$ auf periodischen Gittern. Das Potential hat hier nun eine auf dem Coulombpotential aufbauende Form mit periodischer Argumentverschiebung $\Phi_m:x\mapsto x + \sum_{i\in[3]}d\cdot m_i\cdot \underline e_i$ durch den Gittervektor $m\in\Z^3$ in der Standardbasis $\underline e$ des $\R^3$. Dadurch ergibt sich ein Gitterpotential der Form
+            \[
+                V^\textit{Gitter}(x):= \sum_{m\in\Z^3}(V\circ\Phi_m)(x) = \sum_{m\in\Z^3}\frac{e^2}{4\pi\epsilon_0\cdot\dabs{\Phi_m(x)}{2}}.
+            \]
+
 
         \subsubsection*{Die Dispersionsrelation}
 
