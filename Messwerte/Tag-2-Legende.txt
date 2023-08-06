@@ -1,0 +1,16 @@
+Teil 1 zu H, I:
+	1.Resonanzfrequenz: 2295 Hz
+	2.Resonanzfrequenz: 2306 Hz
+	3.Resonanzfrequenz: 2456 Hz
+
+	File 2/3: 1. Resofreq., 0 Grad (CSV)
+	File 6: 2. Resofreq., 0 Grad (PNG)
+	File 7: 3. Resofreq., 0 Grad (PNG)
+
+	File 4: 1. Resofreq., 0 Grad (CSV)
+	File 5: 2. Resofreq., 0 Grad (CSV)
+	File 6: 3. Resofreq., 0 Grad (CSV)
+
+	File 7/8: 1. Resofreq., 0 Grad (CSV)
+	File 9: 2. Resofreq., 0 Grad (CSV)
+	File 10: 3. Resofreq., 0 Grad (CSV)
