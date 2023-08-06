@@ -4,24 +4,99 @@
         \subsubsection{Schallwellen}
             % -> stehende Wellen
             % -> Resonanz
-            Als Schallwelle bezeichnen wir die lineaere Ausbreitung einer Stoerung in einem Medium. Dies bedeutet die periodische Abstandsänderung der Teilchen in diesem. 
+            Als Schallwelle bezeichnen wir die lineaere Ausbreitung einer Störung in einem Medium. Dies bedeutet die periodische Abstandsänderung der Teilchen in diesem. 
 
         \subsubsection{Harmonischer Oszillator}
             % -> Amplitudenfunktion
             Der \emph{harmonische Oszillator} ist ein Modell einer Schwingung mit Rückstellkraft. Die Bewegungsgleichung lautet
-            \begin{equation}
-                \ddot{x} + \omega^2 x = 0
-            \end{equation}
+            \[
+                \Bigl(\dv{t}\Bigr)^2x(t) + \omega^2\cdot x(t) = 0
+            \]
+            und liefert als DGP zweiter Ordnung das Fundamentalsystem $\{\exp(\pm k\cdot t)\}$, wobei $k$ die Eigenwerte der Matrix $A$ mit charakteristischem Polynom $\chi_A(X) = X^2 + \omega^2$ zum linearen DGP erster Ordnung
+            \[
+                u'(t) = \begin{pmatrix}
+                    0 & 1\\
+                    -\omega^2 & 0
+                \end{pmatrix}\cdot u(t),\quad u(t):=(x(t), x'(t))^T
+            \]
+            darstellen. Als Linearkombination dieser Fundamentalösungen stellt sich 
+            \[
+                x(t) = c_1\cdot\exp(k\cdot t) + c_2\cdot\exp(-k\cdot t)   
+            \]
+            als \emph{allgemeine Lösung} heraus. Um später besser auf diese Struktur referenzieren zu können, definieren wir durch umstellen eine charakterisierende Funktion $k$ der Form
+            \[
+                \R\times(\R\to\R)\ni(E,V)\mapsto k_{E,V}:=\fdef{\frac{\cmath}{\hbar}\cdot\sqrt{2m\cdot(E - V(x))}}{x\in\R}
+            \] 
+            für in $\R\to\R$ befindliche Potentiale $V$ und Energien $E\in\R$. Übertragen auf die Oszillatorgleichung finden wir mit $E:=\omega^2$ und $V:=0\mapsto 0$ als Nullabbildung die Form
+            \[
+                \Bbra{\dv{t}}^2x(t) = -\omega^2\cdot x(t) :\iff D^2x(t) = -E\cdot x(t) :\iff D^2x(t) = T\cdot k_{\omega^2,0_{\R\to\R}}(t)^2\cdot x(t),
+            \]
+            wobei wir hier den Korrekturterm $T:=\hbar^2/(2m)$ einführen mussten. Für die Schrödinger Eigenwertgleichung gewinnen wir mit dieser Formulierung jedoch eine bessere Übersicht über die Struktur der Lösungen.
 
 
 
     \subsection{Aspekte der Quantenmechanik}
+        Die allgemeine Form des zeitunabhängigen Schrödinger Eigenwertproblems ist für eine quadratintegrierbare, zweifach differenzierbare Funktion $\psi$ im Sobolevraum $H^2(\R)$ auf $\R$ gegeben durch
+        \[
+            H(\psi) := \frac{P^2(\psi)}{2m} + V(Q)(\psi) = E\cdot\psi,
+        \]
+        mit dem Impulsoperator $\psi\mapsto P(\psi):=\bigl(-\cmath\hbar\cdot\dv{x}\psi(x)\bigr)_{x\in\R}$ und dem Ortsoperator $\psi\mapsto Q(\psi):=\bigl(\psi(x)\cdot x\bigr)_{x\in\R}$. Die reelle Zahl $E\in\sigma_P(H)$ im Punktspektrum von $H$ ist dabei die Energiebeschreibung des Systems.
         \subsubsection{Das freie Teilchen}
             % -> Schrödingergleichung
-
+            Das Problem des freien Teilchen betrachtet den Fall $V:=0_{\R\to\R}$, also die Nullabbildung als Potential. Das Teilchen ist aus physikalischer Perspektive also im \emph{potentialfreien Raum}. Damit reduziert sich das zeitunabhängige Schrödinger Eigenwertproblem auf die Form 
+            \[
+                H^\textit{frei}(\psi):= \frac{P^2(x)}{2m} = E\cdot\psi(x).
+            \]
+            Die Lösungsstruktur bleibt analog zum harmonischen Oszillator jedoch erhalten: Wir erhalten als Koeffizienten der Exponentialargumente zu einem Energieeigenwert $E$ die Form 
+            \[
+                k_{E,0} := k_{E,0_{\R\to\R}}(0) = \frac{\cmath}{\hbar}\cdot\sqrt{2\cdot m\cdot E}. 
+            \]
+            Die Nullauswertung ist dabei beliebig gewählt, da das Bild von $k_{E,0_{\R\to\R}}$ eine einelementige Menge ist. Nach harmonischer Oszillator Manier lässt sich nun ein DGP erster Ordnung definieren und die Eigenwerte der Transformationsmatrix $A$ bestimmen:
+            \[
+                u'(x) = \begin{pmatrix}
+                    0 & 1\\
+                    k_{E,0}^2 & 0
+                \end{pmatrix}\cdot u(x),\quad u(x):=(\psi(x), \psi'(x))^T.
+            \]
+            Es ergibt sich somit $\chi_A(X) = X^2 - k_{E,0}^2$ und damit die Eigenwerte $\{\pm k_{E,0}\}$, welche wieder als Exponentialargumente des Fundamentalsystems $\{\exp(k_{E,0}\cdot x), \exp(-k_{E,0}\cdot x)\}$ auffassbar sind. Die allgemeine Lösung ist somit wieder eine Linearkombination mit Koordinaten $c\in\R^2$. 
+            
 
         \subsubsection{Das Potentialtopf-Modell}
             % -> Erweiterung der Schrödingergleichung um ein Potential
+            Die Schrödinger Eigenwertgleichung besitzt noch einen bisher nicht ausgespielten Freiheitsgrad des Potentials. Auf einer stückweise konstanten Potentialfunktion $V:\R\to\R$ mit Abschnitten $\R_{<a},[a,b],\R{>b}$ mit $a<b\in\R$ lassen sich die jeweiligen charakterisierenden Funktionen aufstellen und Lösungen der resultierenden Formen 
+            \[
+                D^2\psi(x) = k_{E,V_{<a}}^2\cdot\psi(x),\quad D^2\psi(x) = k_{E,V_{[a,b]}}^2\cdot\psi(x),\quad D^2\psi(x) = k_{E,V_{>b}}^2\cdot\psi(x)
+            \] 
+            nach obigem Schema konstruieren. Dabei sind $V_{<a}:=V(a - 1)$, $V_{[a,b]}:=V((a + b) / 2)$ und $V_{>b}:=V(b + 1)$ die jeweiligen Auswertungen der Potentialfunktion in ihren Bereichen. Als Lösung auf der ganzen Menge $\R$ schlagen wir nun eine Verklebung der linearkombinierten Fundamentalösungen jeweiliger Abschnitte vor. Sie besitzt für die Koordinatenmatrix $c\in\R^{3\times 2}$ zum gegebenen Eigenwert $E\in\R$ die Form 
+            \[
+                \varphi_\lambda(x) := \begin{cases}
+                    c_{1,1}\cdot \exp(k_{E,V_{<a}}\cdot x) + c_{1,2}\cdot \exp(-k_{E,V_{<a}}\cdot x), & x \in\R_{<a} \\
+                    c_{2,1}\cdot \exp(k_{E,V_{[a,b]}}\cdot x) + c_{2,2}\cdot \exp(-k_{E,V_{[a,b]}}\cdot x), & x \in[a,b] \\
+                    c_{3,1}\cdot \exp(k_{E,V_{>b}}\cdot x) + c_{3,2}\cdot \exp(-k_{E,V_{>b}}\cdot x), & x \in\R_{>b}
+                \end{cases}.
+            \]
+            Im eigentlichen Lösungsbegriff ist zweifache Differenzierbarkeit des Vorschlags $\varphi$ nötig, wodurch unbedingte Stetigkeit an $\varphi$ und $\varphi'$ gefordert wird. Die Stetigkeit an den kritischen Punkten $a$ und $b$ liefern bereits zwei Bedingungsgleichungen 
+            \[
+                \lim\varphi(A) = \varphi(\lim\, A),\qquad \lim\varphi(B) = \varphi(\lim\, B),
+            \]
+            für Folgen $A,B:\N\to\R$ mit $\lim A = a$ und $\lim B = b$. 
+            
+            Für die Ableitung des Vorschlags verwenden wir eine andere Stetigkeitscharakterisierung über Integration in einer Kugel $B_{r}(a)$ bzw. $B_{r}(b)$ für Radien $r\in(0,(b-a)/2)$ um die kritischen Punkte unter Verwendung des Schrödiger Eigenwertproblems. Es ergibt sich dann unter geforderter (gleichmäßiger) Stetigkeit die Existenz einer stetigen Stammfunktion zu $\varphi$, genannt $\Phi$. Die Integrationsmethode liefert für die linke Seite per Hauptsatz gerade 
+            \[
+                \int_{B_r(x_0)}\varphi''(t)\;dt = \varphi'(x_0 + r) - \varphi'(x_0 - r),\qquad x_0\in\{a,b\}.
+            \]
+            Die rechte Seite liefert die Form
+            \[
+                -\frac{2m}{\hbar^2}\cdot\nbra{\int_{B_r(x_0)}\lambda\cdot\varphi - V\cdot\varphi} = -\frac{2m}{\hbar^2}\cdot\nbra{\lambda\cdot\int_{B_r(x_0)}\varphi - \int_{B_r(x_0)}V\cdot\varphi}.
+            \]
+            Der entscheidene Part ist nun das Verhalten von $\int_{B_r(x_0)}V\cdot \varphi$, da hier die Definition von $V$ explizit eine Rolle spielt. Da es sich hier nicht um ein Punktpotential handeln soll (mehr dazu später), können wir eine Integralzerlegung auf die Halbkugeln $(x_0-r,x_0)$ und $(x_0,x_0+r)$ vornehmen. Für diese Bereiche ist die Definition von $V$ konstant, sodaß wir die Werte durch $V_{(x_0-r,x_0)}$ bzw. $V_{(x_0,x_0+r)}$ festhalten und linear aus dem Integral herausziehen können. Unter Verwendung der Stammfunktion $\Phi$ ergibt sich dann insgesamt
+            \begin{multline*}
+                -\frac{2m}{\hbar^2}\cdot\Bigl(\lambda\cdot\bigl(\Phi(x_0 + r) - \Phi(x_0 - r)\bigr) \\
+                - V_{(x_0-r,x_0)}\cdot\bigl(\Phi(x_0) - \Phi(x_0 - r)\bigr) - V_{(x_0,x_0+r)}\cdot\bigl(\Phi(x_0 + r) - \Phi(x_0)\bigr)\Bigr) = 0.
+            \end{multline*}
+            Die Stetigkeit von $\Phi$ sorgt nun insgesamt für die Gleichheit zu Null, sodaß wir die Stetigkeitsbedingung aus $\int_{B_r(x_0)}\varphi''(t)\;dt = 0$ ernten können. 
+
+            Das Punktpotential der Form $V(x) = V_0\cdot\delta_{y}(x)$ mit $V_0\in\R$ und $y\in\R$ ist ein Spezialfall mit leicht verschiedenem Vorgehen: Man kann hier das Integral $\int_{B_r(y)}$ nicht wie oben aufteilen, sondern verwendet stattdessen die Definition des Punktmaßes und geht von $\int_{B_r(y)}V\cdot\varphi\;\uplamnda$ zu $\int_{B_r(y)}V\cdot\varphi\;\delta_y := V_0\cdot\varphi(y)$ über (wie legal das ganze ist, birgt mir bis heute Schleier). Dadurch ergibt sich eine Nicht-Null Bedingung für die Stetigkeit von $\varphi'$ an der Stelle $y$ der Form $\varphi'(y + r) - \varphi'(y - r) = -2m/\hbar^2\cdot (V_0\cdot\varphi(y))$.
 
         \subsubsection*{Die Dispersionsrelation}
 
