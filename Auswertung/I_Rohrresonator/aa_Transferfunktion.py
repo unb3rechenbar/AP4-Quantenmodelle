@@ -1,4 +1,6 @@
 import sys
+import matplotlib.pyplot as plt
+
 sys.path.append("..")
 from header.APbrainLite import *
 from header.PlottenInCool import *
@@ -10,7 +12,7 @@ Peaks = [WerttupelL(450, 20), WerttupelL(2090, 20), WerttupelL(4520, 20), Werttu
 
 
 # ---PLOTS---
-PlotKartesisch(*TransferDaten, xLabel="Frequenz in Hz", yLabel="Amplitude", DiagrammTitel="Transferfunktion ",
-               VertikaleLinien=Peaks, VertikaleLinienLabel="Peaks", DatenLabel="Messdaten", mode="save",
-               Pfad="Transferfunktion.jpg")
-
+plt.plot(*TransferDaten, label="Messdaten")
+VertikaleLinien(Peaks, Label="Peaks")
+LabelPlot("Frequenz in Hz", "Ampltiude")
+SpeicherPlot("I_Transferfunktion.jpg")

@@ -132,6 +132,15 @@ class WerttupelL:
             return False
 
 
+# Funktionen zum Umgangen von Werttupeln in Strukturen (Listen etc.)
+def WerteListe(WListe):
+    return list(W.Wert for W in WListe)
+
+
+def WerttupelListe(WertListe, Unsicherheit):
+    return list(WerttupelL(w, Unsicherheit) for w in WertListe)
+
+
 # komplexe Funktionen für Werttupel
 def GradZuBogenmass(Grad):
     return Grad / 360 * 2 * np.pi
@@ -141,11 +150,14 @@ def GradZuBogenmass(Grad):
 def BestimmeFitParameter(xDaten, yDaten, Fitfunktion, WerteGeraten=[]):
     xDatenWerte = [x.Wert for x in xDaten]
     yDatenWerte = [y.Wert for y in yDaten]
+    yDatenUnsicherheit = [y.Unsicherheit for y in yDaten]
 
     if len(WerteGeraten) > 0:
-        Parameter, Kovarianzen = curve_fit(Fitfunktion, xDatenWerte, yDatenWerte, p0=WerteGeraten)
+        Parameter, Kovarianzen = curve_fit(Fitfunktion, xDatenWerte, yDatenWerte, p0=WerteGeraten, sigma=yDatenUnsicherheit,
+                                           absolute_sigma=True)
     else:
-        Parameter, Kovarianzen = curve_fit(Fitfunktion, xDatenWerte, yDatenWerte)
+        Parameter, Kovarianzen = curve_fit(Fitfunktion, xDatenWerte, yDatenWerte, sigma=yDatenUnsicherheit,
+                                           absolute_sigma=True)
     Abweichung = np.sqrt(np.diag(Kovarianzen))
 
     ParameterWerttupel = [WerttupelL(P, A) for P, A in zip(Parameter, Abweichung)]
