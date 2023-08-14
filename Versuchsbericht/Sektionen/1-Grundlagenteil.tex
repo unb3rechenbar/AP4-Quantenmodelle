@@ -4,7 +4,11 @@
         \subsubsection{Schallwellen}
             % -> stehende Wellen
             % -> Resonanz
-            Als Schallwelle bezeichnen wir die lineaere Ausbreitung einer Störung in einem Medium. Dies bedeutet die periodische Abstandsänderung der Teilchen in diesem. 
+            Als Schallwelle bezeichnen wir die lineaere Ausbreitung einer Störung in einem Medium. Dies bedeutet die periodische Abstandsänderung der Teilchen in diesem. Sie kann durch periodisch schwingende Funktionen dargestellt werden, wie beispielsweise die Funktion 
+            \[
+                A(x) = A_0\cdot \cos(\omega\cdot x) = A_0\cdot\Re\Big({\exp}\big(\cmath\cdot\omega\cdot x\big)\Big).
+            \]
+            Dabei ist aus physikalischer Sicht $A_0\in\R$ die Maximalamplitude und $\omega$ die Kreisfrequenz \cite[p.199]{nolting1}. Die Funktion entspring der im folgenden Kapitel diskutierten Schwingungsdifferentialgleichung. 
 
         \subsubsection{Harmonischer Oszillator}
             % -> Amplitudenfunktion
@@ -12,7 +16,7 @@
             \[
                 \Bigl(\dv{t}\Bigr)^2x(t) + \omega^2\cdot x(t) = 0
             \]
-            und liefert als DGP zweiter Ordnung das Fundamentalsystem $\{\exp(\pm k\cdot t)\}$, wobei $k$ die Eigenwerte der Matrix $A$ mit charakteristischem Polynom $\chi_A(X) = X^2 + \omega^2$ zum linearen DGP erster Ordnung
+            (aus \cite[p.307]{nolting51}) und liefert als DGP zweiter Ordnung das Fundamentalsystem $\{\exp(\pm\omega\cdot t)\}$, wobei $k$ die Eigenwerte der Matrix $A$ mit charakteristischem Polynom $\chi_A(X) = X^2 + \omega^2$ zum linearen DGP erster Ordnung
             \[
                 u'(t) = \begin{pmatrix}
                     0 & 1\\
@@ -21,13 +25,15 @@
             \]
             darstellen. Als Linearkombination dieser Fundamentalösungen stellt sich 
             \[
-                x(t) = c_1\cdot\exp(k\cdot t) + c_2\cdot\exp(-k\cdot t)   
+                x(t) = c_1\cdot\exp(\omega\cdot t) + c_2\cdot\exp(-\omega\cdot t)   
             \]
             als \emph{allgemeine Lösung} heraus. Um später besser auf diese Struktur referenzieren zu können, definieren wir durch Umstellen eine charakterisierende Funktion $k$ der Form
             \[
                 \R\times(\R\to\R)\ni(E,V)\mapsto k_{E,V}:=\fdef{\frac{\cmath}{\hbar}\cdot\sqrt{2m\cdot(E - V(x))}}{x\in\R}
             \] 
-            für in $\R\to\R$ befindliche Potentiale $V$ und Energien $E\in\R$. Übertragen auf die Oszillatorgleichung finden wir mit $E:=\omega^2$ und $V:=0\mapsto 0$ als Nullabbildung die Form
+            für in $\R\to\R$ befindliche Potentiale $V$ und Energien $E\in\R$. Da die Lösungen Exponentialfunktionen sind und die Funktionsauswertungen $k(E,V)(x)$ als Vorfaktoren im Argument auftreten, können sie einer physikalischen Anschauung der \emph{Kreisfrequenz} $\omega$ durch eine Transformation $k\mapsto k\cdot\cmath$ unterzogen werden. Dabei ist der Imeginärteil unserer charakterisierenden Funktion gerade der Betrag des Wellenvektors $k$ und mit der Transformation die Dispersionsrelation begründet. 
+            
+            Übertragen auf die Oszillatorgleichung finden wir mit $E:=\omega^2$ und $V:=0\mapsto 0$ als Nullabbildung die Form
             \[
                 \Bbra{\dv{t}}^2x(t) = -\omega^2\cdot x(t) :\iff D^2x(t) = -E\cdot x(t) :\iff D^2x(t) = T\cdot k_{\omega^2,0_{\R\to\R}}(t)^2\cdot x(t),
             \]
@@ -137,32 +143,56 @@
                 \]
                 wobei $P_{l,m_l}$ selbst die $m_l$-ten Ableitungen der Legendrepolynome, gestaucht durch $x\mapsto (-1)^{m_l}\cdot(1-x^2)^{{m_l}/2}$ sind. Die Legendrepolynome sind wiederum Lösungen des \emph{legendreschen DGPs} $(1-t^2)\cdot u''(t) - 2\cdot t\cdot u'(t) + l\cdot (l + 1)\cdot u(t) = 0$ und gegeben durch die explizite Form $P_l(t) := \sum_{k\in\{0,..,\lfloor l/2\rfloor\}}(-1)^k\cdot(2l - 2k)!/\bigl((l - k)!\cdot (l - 2k)!\cdot k!\cdot 2^l\bigr)\cdot t^{l-2k}$ unter $\lfloor\cdot\rfloor$ als Abrundungsfunktion \cite{wiki:Laguerrepolynome,wiki:Kugelflaechenfunktionen,wiki:zugeordneteLegendrepolynome,wiki:Legendrepolynome,wiki:BohrRadius,git:IK4T}.
             \end{shaded}
+            Zu der Entartung (Begriffsdefinition aus \cite[p.159]{demtröder51}) des Wasserstoffatoms ohne Spinbetrachtung können wir über den Blick auf die Definition der Quantenzahlen $n,l,m_l$ auf die Anzahl der Eigenvektoren zu einem Eigenwert $E\in\sigma_P(H)$ schließen. Ist ein $n\in\N$ gegeben, so haben wir für $l$ gerade $\text{card}([n-1]_0) = n$ Möglichkeiten\footnote{Die Notation $[n-1]_0$ bedeutet hier den Einbezug der Null, also die Menge $\{0,1,\dots,n-1\}$.}. Für jede dieser Möglichkeiten ergibt sich die Menge $\{-l+n:n\in\N\}\cap[-l,l]$, aus welcher die Zahl $m_l$ gewählt werden kann. Für diese ergibt sich die Kardinalität $2\cdot l + 1$. Durch Summierung über alle $l$ Varianten ergibt sich dann der Entartungsgrad als 
+            \[
+                n\mapsto \sum_{l\in[n-1]_0}(2\cdot l + 1) = \sum_{l\in[n-1]_0}2\cdot l + \sum_{l\in[n-1]_0}1 = n\cdot (n - 1) + n = n^2.
+            \]
             
         \subsubsection{Periodisch radiale Potentiale am Beispiel kristallinier Festkörper}
             Als Charakteristikum des kristallinen Festkörpers betrachten wir in einem festen Abstand $d$ befindliche Kerne mit Ladung $e$ auf periodischen Gittern. Das Potential hat hier nun eine auf dem Coulombpotential aufbauende Form mit periodischer Argumentverschiebung $\Phi_m:x\mapsto x + \sum_{i\in[3]}d\cdot m_i\cdot \underline e_i$ durch den Gittervektor $m\in\Z^3$ in der Standardbasis $\underline e$ des $\R^3$. Dadurch ergibt sich ein Gitterpotential der Form
             \[
                 V^\textit{Gitter}(x):= \sum_{m\in\Z^3}(V\circ\Phi_m)(x) = \sum_{m\in\Z^3}\frac{e^2}{4\pi\epsilon_0\cdot\dabs{\Phi_m(x)}{2}}.
             \]
-
-
-        \subsubsection*{Die Dispersionsrelation}
-
-
-        \subsubsection{Der kristalline Festkörper}
-            % -> Allgemeiner Aufbau
-            % -> Bandstruktur
-
-
-        \subsubsection{Das Wasserstoffatom}
-            % -> Schrödingergleichung
-            % -> Lösungen (Kugelflächenfunktionen)
-            % -> Spektrum
-            % -> Entartung
+            Die Lösung des mit diesem Potential verbundenen Hamiltonoperators mithilfe der präsentierten Methode der Radial- und Winkelzerlegung wird hier jedoch bereits an ihrer impliziten Voraussetzung eines einzigen Pols scheitern. Findet man jedoch beispielsweise durch numerische Lösung die Eigenvektoren und Eigenwerte, so definiert man (Existenz vorausgesetzt) die \emph{Energiebänder} als diejenigen Abschnitte (oder auch reellen Intervalle), aus welchen die Eigenwerte stammen. Intervalle, welche aus nicht-Eigenwerten bestehen, werden als Bandlücken bezeichnet, die Gesamtheit beider stellt die \emph{Bandstruktur} dar \cite{wiki:ElectronicBandStructure}.
 
 
         \subsubsection*{Wasserstoffmoleküle}
             % -> Molekülorbitale
             % -> Energieniveaus
+            Bei dem konkreteren Problem des Dihydrogens \chemfig{H-H} haben wir es mit einem System von zwei Protonen $p^+$ und zwei Elektronen $e^-$ zutun. Unter der Verwendung der Information $m_{e^-}\ll m_{p^+}$ können wir das Problem jedoch vereinfachen auf ein Zweielektronenproblem. Sind $R_1,R_2\in\R^3$ die Ortsvektoren der Protonen $p_1^+$ und $p_2^+$, sowie $r_{1,1},r_{2,2}\in\R^3$ die Orte der zugeordneten Elektronen $e_1^-\to p_1^+$ und $e_2^-\to p_2^+$, so ergibt sich das Potential 
+            \[
+                V^{\textit{H}_2}(x) := \frac{e^2}{4\pi\epsilon_0}\cdot\bigg(
+                    \frac{1}{\dabs{x - R_1}{2}} + \frac{1}{\dabs{x - R_2}{2}} - \frac{1}{\dabs{x - r_{1,1}}{2}} - \frac{1}{\dabs{x - r_{2,2}}{2}}
+                \bigg).
+            \]
+            Durch die Kombination der Hamiltonoperatoren $H_i:=P_i^2/(2\cdot m_i) + V_i(Q)$ der einzelnen Teilchen erfolgt ebenfalls additiv die Definition
+            \[
+                H^{\textit{H}_2} := \sum_{i\in[4]}\frac{P_i^2}{2\cdot m_i} + V^{\textit{H}_2}(Q) \approx \frac{1}{2\cdot m_{e^-}}\cdot\Big(P_{e_1^-}^2 + P_{e_2^-}^2\Big) + V^{\textit{H}_2}(Q).
+            \]
+            Da $H$ selbst symmetrisch bezüglich der Elektronen ist und keine Spinbetrachtung erfolgt, können wir die Lösung $\psi$ aufteilen in $\psi = \varphi\cdot\ket{s,m_s}$, wobei $\ket{s,m_s}$ gerade für Spineinhalbteilchen gegeben ist durch die Kopplungen $S = 1$ und $S = 0$ mit $S:=\sum_{i\in[2]}s_i$ und unter Betrachtung der Quantenzahldefinitionsmengen die vier möglichen Spinzustände $\ket{0,0}$ bzw. $\ket{1,-1}$, $\ket{1,0}$ und $\ket{1,1}$ lauten. Sie sind dabei durch die Einzelspinzustände $\ket{\uparrow,1}$, $\ket{\downarrow,1}$ bzw. $\ket{\uparrow,2}$, $\ket{\downarrow,2}$ in der Form 
+            \begin{alignat*}{3}
+                \ket{0,0} &= \frac{1}{\sqrt{2}}\cdot\big(\ket{\uparrow,1}\cdot\ket{\downarrow,2} - \ket{\downarrow,1}\cdot\ket{\uparrow,2}\big),\quad&& \ket{1,-1} &&= \ket{\downarrow,1}\cdot\ket{\downarrow,2},\\
+                & && \ket{1,0} &&= \frac{1}{\sqrt{2}}\cdot\big(\ket{\uparrow,1}\cdot\ket{\downarrow,2} + \ket{\downarrow,1}\cdot\ket{\uparrow,2}\big),\\
+                & && \ket{1,1} &&= \ket{\uparrow,1}\cdot\ket{\uparrow,2}
+            \end{alignat*}
+            durch \emph{antisymmetrische} bzw. \emph{symmetrische} Wellenfunktionen zusammengesetzt sind und das \emph{Singulett} bzw. \emph{Tripplett} bilden. Letzterer ist dadurch symmetrisch bezüglich der Elektronenvertauschung. Bei der Zusammensetzung zu der Wellenfunktion $\psi$ mit unserem obigen Ansatz müssen wir die Symmetriebedingung an $\psi$ beachten. Sie soll antisymmetrischer Natur sein, sodaß wir für den bereits antisymmetrischen Spinanteil $\ket{0,0}$ eine symmetrische Faktorfunktion $\varphi^\textit{sym}$ fordern. Andererseits sind die Tripplettzustände symmetrisch, sodaß für diese eine antisymmetrische Faktorfunktion $\varphi^\textit{anti}$ gefordert ist. Somit gilt für $m\in\{-1,0,1\}$ allgemein
+            \[
+                \psi = \varphi^\textit{sym}\cdot\ket{0,0},\qquad \psi = \varphi^\textit{anti}\cdot\ket{1,m}.
+            \]
+            Unter verschiedenen Näherungen wie der Inkaufnahme Polarer Zustände, d.i. der Aufenthalt von beiden Elektronen an einem Proton, und der Approximation eines eigentlich als unendlich geforderten Abstandes $\dabs{R_a - R_b}{2}$ durch einen endlichen Wert im Zuge des \emph{Heitler-London-Verfahrens} können wir die Eigenwerte $E_1,E_2$ aus den entsprechenden Wasserstoffatomen und ihren Hamiltonoperatoren $H_1^\textit{H}$ und $H_2^\textit{H}$ zu den Eigenvektoren $\varphi_1,\varphi_2$ exportieren. Durch (anti)-symmetrische Linearkombination
+            \[
+                \varphi_\pm := \frac{1}{2}\cdot\Big(\varphi_1\cdot\varphi_2\pm\varphi_2\cdot\varphi_1\Big)
+            \]
+            lässt sich die Systemenergie abschätzen zu $E_\pm = \langle\varphi_\pm|H^{\textit{H}_2}|\varphi_\pm\rangle/\braket{\varphi_\pm}{\varphi_\pm}$. 
 
+            \begin{shaded}
+                Interessiert man sich nun besonders für die Abschätzung der Grundzustandsenergie des Wasserstoffmolekülmodells, so liegt es an der Abschätzung von Zähler und Nenner des Energiebruchs. Beginnend bei dem Nenner, können wir einen Ausdruck über das \emph{Überlappungsintegral} als Maß der Überlappung zweier beliebiger Wellenfunktionen für $\phi_\mu,\phi_\nu$ als Zustände definieren durch $S_{\mu,\nu}:=\scpr{\phi_\mu}{\phi_\nu}$. Damit folgt für unsere Zustände $\varphi_\pm$ der Ausdruck $(1\pm S_{1,2})/2$. 
+
+                Der Zähler ist in seiner Berechnung umfangreicher. Wir werden die Details hier auslassen und auf die Definition des \emph{Austauschintegrals} $A_{1,2}$ bzw. des \emph{Coulomb-Integrals} $C_{1,2}$ in die Literatur verweisen \cite[p.301]{nolting51}. In der Gesamtheit ergibt sich als Abschätzung
+                \[
+                    E_\pm\approx E_1 + E_2 + \frac{C_{1,2}\pm A_{1,2}}{1\pm \abs{L_{1,2}}^2}.
+                \]
+            \end{shaded}
+            Relevante Resultate der Untersuchungen sind nun die Energieungleichung $E_+ < E_-$ für $E_+$ als Singulett- und $E_-$ als Tripplettenergie und der Fund eines \emph{energetisch günstigsten}, \underline{endlichen} Abstandes $R_{1,2}^{(0)}$ im Singulett \cite[p.297-302]{nolting51}. Dies liefert konkret die Erklärung der chenimschen Bindung des Dihydrogens! 
     
 \end{document}
