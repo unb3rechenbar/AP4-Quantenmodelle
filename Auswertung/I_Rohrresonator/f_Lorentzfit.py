@@ -12,6 +12,11 @@ import aa_Transferfunktion as transfer
 xResonanzkurve, yResonanzkurve = DatenEinlesen("../../Messwerte/Tag-1/teil1_125cm.dat") # Daten aus 1.d)
 
 
+# ---PLOTTE ROHDATEN---
+plt.plot(xResonanzkurve, yResonanzkurve, label="Messdaten")
+LabelPlot("Frequenz in Hz", "Amplitude")
+SpeicherPlot("I_f_Rohspektrum.jpg")
+
 # ---PRÄPERIERE DATEN---
 zeigeSpektrum = False
 if zeigeSpektrum:
@@ -89,7 +94,7 @@ print(ErstelleTabelle(["Ordnung", "Amplitude", "Eigenfrequenz", "Dämpfungskonst
 a, b, p = Intervalle[0]
 xDaten, yDaten = xResonanzkurve[a:b], yResonanzkurve[a:b]
 plt.plot(xDaten, yDaten, label="Messdaten")
-PlotteFit(xDaten, LorentzFit, WerteListe(FitParameter[0]), Label="Lorentz-Fitkurve")
+PlotteFit(xDaten, LorentzFit, FitParameter[0], Label="Lorentz-Fitkurve")
 LabelPlot("Frequenz in Hz", "Amplitude")
 SpeicherPlot("I_f_LorentzfitBeispiel.jpg")
 

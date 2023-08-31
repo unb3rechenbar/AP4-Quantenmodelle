@@ -46,9 +46,14 @@ print("COMPUTERDATEN: Schallgeschwindigkeit in m/s: ", SchallComputer)
 
 # ---PLOTS FÜR LINEARE FITS---
 plt.errorbar(Ordnungen, PeaksComputer, fmt="s", yerr=PeaksUnsicherheit, color="red", label="Computerdaten")    # Daten aus 1.c
-PlotteFit(Ordnungen, LinearerFit, WerteListe(ParameterComputer), Label="Fit (Computerdaten)")
+PlotteFit(Ordnungen, LinearerFit, ParameterComputer, Label="Fit (Computerdaten)")
 LabelPlot("Ordnung n", "Resonanzfrequenz in Hz")
 SpeicherPlot("I_Schallgeschwindigkeitfit.jpg")
+
+
+# ---Signifikanztest mit Literaturwert---
+SchallLiteratur = WerttupelL(344, 0)
+print("Vereinbarkeit: ", Signifikanztest(SchallComputer, SchallComputer))
 
 # TODO
 # lineare Regression von Resonanzfrequenzen über Ordnung (einmal mit Oskzilloskop Daten aus 1.a), einmal mit den Daten

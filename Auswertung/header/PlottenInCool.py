@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+from header.APbrainLite import *
+
 plt.figure(figsize=(7, 5))
 
 
@@ -14,9 +16,12 @@ def VertikaleLinien(VertikaleLinien, Label=""):
 
 
 # initiailisert Beschriftungen und Legende
-def LabelPlot(xLabel, yLabel, LegendenPos=None):
+def LabelPlot(xLabel, yLabel, LegendenPos=None, yPadding=None):
     plt.xlabel(xLabel, fontsize=12)
-    plt.ylabel(yLabel, fontsize=12)
+    if yPadding:
+        plt.ylabel(yLabel, fontsize=12, labelpad=yPadding)
+    else:
+        plt.ylabel(yLabel, fontsize=12)
 
     if LegendenPos is None:
         plt.legend(fontsize=12)
@@ -30,9 +35,18 @@ def SpeicherPlot(Pfad):
 
 
 # plottet Fitkurve
-def PlotteFit(xDaten, FitKurve, Fitparameter, Label="Fit-Kurve", Datenweite=1000):
+def PlotteFit(xDaten, FitKurve, Fitparameter, Label="Fit-Kurve", Datenweite=1000, Fill=False,
+              FillFarbe="red", FillTransparenz=0.5, Farbe=None):
     xDaten = np.linspace(min(xDaten), max(xDaten), Datenweite)
-    plt.plot(xDaten, FitKurve(xDaten, *Fitparameter), label=Label)
+    yDaten = FitKurve(xDaten, *WerteListe(Fitparameter))
+
+    if Fill:
+        plt.fill_between(xDaten, yDaten, color=FillFarbe, alpha=FillTransparenz, label=Label)
+    else:
+        if Farbe:
+            plt.plot(xDaten, yDaten, label=Label, color=Farbe)
+        else:
+            plt.plot(xDaten, yDaten, label=Label)
 
 
 # bestimmt Index, ab dem Listenelemente bestimmen Wert übersteigen

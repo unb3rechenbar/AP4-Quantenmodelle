@@ -334,7 +334,11 @@ def DatenEinlesen(Pfad, ZeilenCutoff=1, Spaltensep=" ", Spaltenzahl=2):
 
         for Zeile in Zeilen:
             SpaltenEintraege = Zeile.split(Spaltensep)
-            for i, Spalte in enumerate(Spalten):
-                Spalte.append(float(SpaltenEintraege[i]))
-
+            if len(SpaltenEintraege) == len(Spalten):
+               for i, Spalte in enumerate(Spalten):
+                    SpaltenEintraege[i] = SpaltenEintraege[i].replace("\n","")
+                    try:
+                        Spalte.append(float(SpaltenEintraege[i]))
+                    except ValueError:
+                        print(i, SpaltenEintraege[i])
     return Spalten

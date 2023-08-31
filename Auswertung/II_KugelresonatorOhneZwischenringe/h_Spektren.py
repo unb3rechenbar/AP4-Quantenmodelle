@@ -19,6 +19,12 @@ KugelDatenLabels = [r"$\alpha=0°$", r"$\alpha=60°$", r"$\alpha=120°$", r"$\al
 
 # ---PLOTTE DATEN---
 for i in range(len(KugelDaten)):
+    plt.plot(*KugelDaten[i])
+
+plt.show()
+exit()
+
+for i in range(len(KugelDaten)):
     plt.plot(*KugelDaten[i],  label=KugelDatenLabels[i])
     LabelPlot("Frequenz in Hz", "Amplitude")
     SpeicherPlot("II_f_Spektrum_%i_Grad.jpg" % (60 * i))
