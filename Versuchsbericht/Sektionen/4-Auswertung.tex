@@ -13,10 +13,10 @@
             \label{fig:I_Transferfunktion}
         \end{figure}
 
-        Zu erkennen sind vier Maxima: $f_1=\SI{450(20)}{\hertz}$, $f_2=\SI{2090(20)}{\hertz}$, $f_3=\SI{4520(20)}{\hertz}$ und $f_4=\SI{8060(20)}{\hertz}$. Die Unsicherheit von $u=\SI{20}{\hertz}$ wurde aufgrund des Abstands der aufgenommenen Datenpunkte zueinander festgelegt. Besonders ausgeprägt sind $f_1$ und $f_2$, was in späterer Bestimmung von der Breite einiger Peaks zu beachten ist.
+        Zu erkennen sind vier Maxima: $f_1=\SI{450(20)}{\hertz}$, $f_2=\SI{2090(20)}{\hertz}$, $f_3=\SI{4520(20)}{\hertz}$ und $f_4=\SI{8060(20)}{\hertz}$. Die Unsicherheit von $u=\SI{20}{\hertz}$ wurde aufgrund des Abstands der aufgenommenen Datenpunkte zueinander festgelegt. Besonders ausgeprägt sind $f_1$ und $f_2$, was später für die Bestimmung von der Breite einiger Peaks zu beachten ist.
     
     \paragraph{Berechung der Schallgeschwindigkeit}
-        \ref{fig:I_c_Resonanzspektrum} zeigt das Spektrum eines Rohresonators der Länge $\SI{60}{\centi\metre}$.
+        \ref{fig:I_c_Resonanzspektrum} zeigt das Spektrum eines Rohrresonators der Länge $\SI{60}{\centi\metre}$.
 
         \begin{figure}[H]
             \centering
@@ -61,7 +61,7 @@
             c = \frac{2 L\cdot f_n}{n}
             \label{eq:I_Schallgeschwindigkeit}
         \end{align}
-        genügen müssen mit $c$ als Phasengeschwindigkeit, $f_n$ als Frequenz der Ordnung $n\in\N$ und $L$ als Rohrlänge. Es gilt also die lineare Relation $f_n: n\mapsto (2L/ c)\cdot n$. Ein enstprechender Fit für die Daten aus \ref{tab:I_c_Resonanzspektrum} ist in dargestellt.
+        genügen müssen mit $c$ als Phasengeschwindigkeit, $f_n$ als Frequenz der Ordnung $n\in\N$ und $L$ als Rohrlänge. Es gilt also die lineare Relation $f_n: n\mapsto (2L/ c)\cdot n$. Ein enstprechender Fit für die Daten aus \ref{tab:I_c_Resonanzspektrum} ist in \ref{fig:I_Schallgeschwindigkeitfit} dargestellt.
 
         \begin{figure}[H]
             \centering
@@ -70,7 +70,7 @@
             \label{fig:I_Schallgeschwindigkeitfit}
         \end{figure}
 
-        Die Steigung der Gerade ist $a=\SI{288.5(23)}{\hertz}$ und der y-Achsenabschnitt $b=\SI{9(14)}{\hertz}$ (letzterer dient dazu, Hintergrundrauschen zu kompensieren). Mit \eqref{eq:I_Schallgeschwindigkeit} ergibt sich so $c=\SI{346.2(28)}{\metre\per\second}$. Der Literaturwert bei $\SI{20}{\celsius}$ liegt bei $c^{(lit)}=\SI{344}{\metre\per\second}$ \cite{const:sound}, was in hunder Prozent Übereinstimmumg mit dem berechneten Wert liegt.
+        Die Steigung der Gerade ist $a=\SI{288.5(23)}{\hertz}$ und der y-Achsenabschnitt $b=\SI{9(14)}{\hertz}$ (letzterer dient dazu, Hintergrundrauschen zu kompensieren). Mit \eqref{eq:I_Schallgeschwindigkeit} ergibt sich so $c=\SI{346.2(28)}{\metre\per\second}$. Der Literaturwert bei $\SI{20}{\celsius}$ liegt bei $c^{(lit)}=\SI{344}{\metre\per\second}$ \cite{const:sound}, was in hundert Prozent Übereinstimmumg mit dem berechneten Wert liegt.
 
     \paragraph{Lebensdauer von Resonanzzuständen}
         Weiter wurde ein breites Spektrum eines Rohrs der Länge $\SI{15}{\centi\metre}$ aufgenommen, um die Breite beziehungsweise Lebensdauern der Resonanzzustände zu untersuchen.
@@ -84,12 +84,13 @@
 
         Für einzelne Resonanzen gilt in guter Näherung die spektrale Lorentz-Auflösung 
         
-        \begin{align*}
+        \begin{align}
             A: \omega\mapsto \frac{K}{(\omega_0-\omega)^2 + \lambda^2},
-        \end{align*}
+            \label{eq:I_f_Lorenrtfitfunktion}
+        \end{align}
         falls $\omega_0\gg \lambda$. Dabei ist $A(\omega)$ die Amplitude des Frequenzanteils $\omega$, $K$ die Amplitude der spektralen Auflöung, $\omega_0$ die Resoanzkreisfrequenz und $\lambda$ der Dämpfungskoeffizient.\\
 
-        Zunächst wurden die Daten auf ein Gebiet von $\SI{5000}{\hertz}$ bis $\SI{13500}{\hertz}$ eingeschränkt, damit die Breite der Peaks weder von der Transferfunktion noch von dem chaotischen Verhalten bei hohen Frequenzen in \ref{fig:I_f_Rohspektrum} beeinflusst wird. Anschließend wurde das Spektrum in Intervalle eingeteilt, die von einem Minimum zwischen zwei Peaks zum nächsten führten. Innerhalb dieser Intervalle wurde jweils ein Lorentzfit durchgeführt, um den Einfluss von benachbarten Peaks minimal zu halten. Zuletzt wurde Gleichung für den Fit noch um eine Konstante $C\in\R$ erweitert, um störende Effekte allgemein zu berücksichtigen. Diagramm \ref{fig:I_LorentzfitVorbereitung} zeigt die Intervallhalbierung und einen exemplarischen Fit für kleine Resonanzordnung.
+        Zunächst wurden die Daten auf ein Gebiet von $\SI{5000}{\hertz}$ bis $\SI{13500}{\hertz}$ eingeschränkt, damit die Breite der Peaks weder von der Transferfunktion noch von dem chaotischen Verhalten bei hohen Frequenzen in \ref{fig:I_f_Rohspektrum} beeinflusst wird. Anschließend wurde das Spektrum in Intervalle eingeteilt, die von einem Minimum zwischen zwei Peaks zum nächsten führten. Innerhalb dieser Intervalle wurde jweils ein Lorentzfit durchgeführt, um den Einfluss von benachbarten Peaks minimal zu halten. Zuletzt wurde Gleichung \eqref{eq:I_f_Lorenrtfitfunktion} für den Fit noch um eine Konstante $C\in\R$ erweitert, um störende Effekte allgemein zu berücksichtigen. Diagramm \ref{fig:I_LorentzfitVorbereitung} zeigt die Intervallhalbierung und einen exemplarischen Fit für kleine Resonanzordnung.
 
         \begin{figure}[H]
             \centering
@@ -133,7 +134,7 @@
         \label{tab:I_f_LorentzParameter}
     \end{table}
     
-    Dass die Ordnungen bei $4$ beginnten kommt daher, dass vor ersten gefitteten Peaks bereits 4 echte Resonanzen vorhanden waren, deren Breiten aber vermutlich von der Transferfunktion verfälscht sind.\\
+    Dass die Ordnungen bei $4$ beginnen kommt daher, dass vor den ersten gefitteten Peaks bereits 4 echte Resonanzen vorhanden waren, deren Breiten aber vermutlich von der Transferfunktion verfälscht waren.\\
     
     Die Lebensdauer ergibt sich nun über $\tau=1/\lamba$ und ist in \ref{fig:I_f_Lebensdauer} zusammen mit dem Dämpfungskoeffizient visualisiert.
 
@@ -156,7 +157,7 @@
         \label{fig:II_f_Spektren}
     \end{figure}
 
-    Da die Symmetrieachse senkrecht durch den Lautsprecher (den Erzeuger der Druckmoden) verläuft, müssen auch die Kugelflächenfunktionen $Y_{m,l}$, die bis auf einen Faktor die Druckamplitude vorgeben bei dem Kugelradius, in Schieflage gesehen werden. Verdrehen der Halbkugeln zueinander variiert also sowohl den Horizontalwinkel $\varphi$, als auch den Vertikanlwinkel $\vartheta$. Im Prinzip kann so der Verlauf von $Y_{l,m}$ entlang beider Winkel gemessen werden.
+    Da die Symmetrieachse senkrecht durch den Lautsprecher (den Erzeuger der Druckmoden) verläuft, müssen auch die Kugelflächenfunktionen $Y_{m,l}$, die bis auf einen Faktor die Druckamplitude bei dem Kugelradius vorgeben, in Schieflage gesehen werden. Verdrehen der Halbkugeln zueinander variiert also sowohl den Horizontalwinkel $\varphi$, als auch den Vertikanlwinkel $\vartheta$. Im Prinzip kann so der Verlauf von $Y_{l,m}$ entlang beider Winkel gemessen werden.
 
     Allerdings führen die vom Lautsprecher emittierte Wellen eher zu Moden, welche entlang der Symmetrieachse eine echte Druckschwingung (d.h. mit Amplitude ungleich Null) besitzen. Dies ist gerade bei $m=0$ der Fall. Aber
 
@@ -175,7 +176,7 @@
             L: \vartheta\mapsto a\cdot \vert Y_{l,0}(K(\vartheta,0))\vert = a\cdot\vert P_l^0(\cos(\vartheta))\vert\footnote{\text{Es wurde $\varphi=0$ gesetzt, da für $m=0$ der Horizontalwinkel keinen Einfluss auf die Form von $Y_{l,m}$ hat.}}
         \end{align*}
         
-        \noindent aufgezeigt, deren Quantenzahl $l$ den Daten am ehesten zusagt. Der Fitparameter $a$ repräsentiert den Wert der Radiallösung der Druck-Gleichung für den vorliegenden Kugelradius, sowie den Amplitudenfaktor in den Kugelflächenfunktionen selbst.
+        \noindent aufgezeigt, deren Quantenzahl $l$ den Daten am ehesten zusagt. Der Fitparameter $a$ repräsentiert den Wert der Radiallösung der Druck-Gleichung für den vorliegenden Kugelradius, sowie einen Normierungsfaktor in den Kugelflächenfunktionen selbst.
 
         \begin{figure}[H]
             \centering
@@ -235,7 +236,7 @@
     \end{table}
 
 \paragraph{Doppelmaximum bei $f=\SI{5000}{\hertz}$}
-    Weiter wurden die zwei Peaks bei ungefähr $f=\SI{5000}{\hertz}$ untersucht. Die Diagramme in \ref{II_i_Resonanzspektren_5000Hz} zeigen das Spektrum für verschiedene Drehwinkel der Halbkugeln.
+    Weiter wurden die zwei Peaks bei ungefähr $f=\SI{5000}{\hertz}$ untersucht. Die Diagramme in \ref{fig:II_i_Resonanzspektren_5000Hz} zeigen das Spektrum für verschiedene Drehwinkel der Halbkugeln.
 
     \begin{figure}[H]
         \centering
@@ -297,7 +298,7 @@
         \label{fig:III_l_Vergleichspektrum}
     \end{figure}
 
-    Das Einsetzen des Zwischenrings sorgt also für die Aufspaltung der Peaks in gebündelte Peak-Gruppen. Dies stimmt mit der Theorie überein, nach der ein Symmetriebruch des Systems die Entartung der Zustände für ein festes $l\in\N$ aufhebt (die verschiedenen Formen der Kugelflächenfunktionen bei anderen $m\in\N$ sorgen für eine je andere Resonanzenergie) Für eine genauere Betrachtung ist in Diagramm \ref{III_l_Vergleichspektrum_Nahaufnahme} eine Nahaufnahme abgebildet.
+    Das Einsetzen des Zwischenrings sorgt also für die Aufspaltung der Peaks in gebündelte Peak-Gruppen. Dies stimmt mit der Theorie überein, nach der ein Symmetriebruch des Systems die Entartung der Zustände für ein festes $l\in\N$ aufhebt (die verschiedenen Formen der Kugelflächenfunktionen bei anderen $m\in\N$ sorgen für eine je andere Resonanzenergie) Für eine genauere Betrachtung ist in Diagramm \ref{fig:III_l_Vergleichspektrum_Nahaufnahme} eine Nahaufnahme abgebildet.
 
     \begin{figure}[H]
         \centering
@@ -306,7 +307,7 @@
         \label{fig:III_l_Vergleichspektrum_Nahaufnahme}
     \end{figure}
 
-    Der erste Peak in \ref{fig:III_l_Vergleichspektrum} spaltet sich also in zwei Peaks auf, und der zweite in drei. Theoretisch sollte die $2l+1$-fache Entartung, auf eine $l+1$-fache redzuiert werden. Dies kommt daher, dass die Kugelflächenfunktionen zu $-m,m$ sich nur in der Phase und Ampltiude unterscheiden. Denn die Legrende-Polynome $P_l^m$ und $P_l^{-m}$ sind identitisch bis auf einen Zahlenfaktor. Eine Gruppe von zwei Peaks, heißt also $2=l_1+1$, also $l_1=1$. Analog folgt für drei Peaks $l_2=2$. Diese Quantenzahlen stimmen mit denen der Polschnitte \ref{fig:II_i_Polschnitt_2300_10} und \ref{fig:II_i_Polschnitt_3694_20} überein.
+    Der erste Peak in \ref{fig:III_l_Vergleichspektrum} spaltet sich also in zwei Peaks auf, und der zweite in drei. Theoretisch sollte die $2l+1$-fache Entartung, auf eine $l+1$-fache redzuiert werden. Dies kommt daher, dass die Kugelflächenfunktionen zu $-m,m$ sich nur in der Phase und Ampltiude unterscheiden. Denn die Legrende-Polynome $P_l^m$ und $P_l^{-m}$ sind identitisch bis auf einen Zahlenfaktor. Eine Gruppe von zwei Peaks heißt also $2=l_1+1$, also $l_1=1$. Analog folgt für drei Peaks $l_2=2$. Diese Quantenzahlen stimmen mit denen der Azimutalschnitte \ref{fig:II_i_Polschnitt_2300_10} und \ref{fig:II_i_Polschnitt_3694_20} überein.
 
     \paragraph{Exemplarische Azimutalschnitte}
         Darstellung \ref{fig:III_jk_Azimutalschnitte} zeigt einige Azimutalschnitte der Druckverteilungen auf der Kugeloberfläche. Da der Winkel $\vartheta$ nicht verändert wird und immer eine Überlagung von Resonanzen mit $m,-m$ betrachtet wird, eignet sich zudem ein Fit der Form 
@@ -389,7 +390,7 @@
 
         Die Steigung beträgt $\SI{18.9(19)}{\hertz\per\milli\metre}$, der y-Achsenabschnitt $\SI{2(10)}{\hertz}$. Letzter ist im Rahmen der Unsicherheit Null, da ohne Ring auch keine Frequenzaufspaltung auftrifft.
 
-\subsection{Das Wasserstofmolekül}
+\subsection{Das Wasserstoffmolekül}
     In diesem Abschnitt werden die Ergebnisse zu den mit Blenden gekoppelten Kugelresonatoren untersucht. Zunächst zeigt Diagramm \ref{fig:IV_Transferfunktion} die Transferfunktion der Kugelresonatoren.
 
     \begin{figure}[H]
@@ -403,7 +404,7 @@
     
     
     \paragraph{$1\sigma$-Molekülorbitale}
-        Abbildung zeigt zunächst das niedere Resonanzspektren bei mehreren Blendenöffnungen.
+        Abbildung \ref{fig:IV_a_Spektren} zeigt zunächst das niedere Resonanzspektren bei mehreren Blendenöffnungen.
 
         \begin{figure}[H]
             \centering
@@ -412,20 +413,120 @@
             \label{fig:IV_a_Spektren}
         \end{figure}
 
-        Dass sowohl Amplitude als auch Frequenz der Resonanz bei einen weiteren Blendenöffnung größer werden, hat denselben Grund. Durch die größere Öffnung gelangen mehr elementare Druckwellen von einem Kugelresonator in den anderen. Durch die Überlagerungen dieser wird die Druckschwingung stärker und geht auch schneller von statten: dies resultiert in einer höheren Amplitude und kinetischen Energie der Luft (also auch einer höheren Energie der Druckmode).\\
+        Dass sowohl Amplitude als auch Frequenz der Resonanz bei einer weiteren Blendenöffnung größer werden, hat denselben Grund. Durch die größere Öffnung gelangen mehr elementare Druckwellen von einem Kugelresonator in den anderen. Durch die Überlagerungen dieser wird die Druckschwingung stärker und geht auch schneller von statten: dies resultiert in einer höheren Amplitude und kinetischen Energie der Luft (also auch einer höheren Energie der Druckmode).\\
         
-        In Anologie zu den quantenmechanischen Molekülorbitalen kann nun anhand der Phasenverschiebung der Welle in Lautsprecher und Mikrofon festgestellt werden, ob der Zustand bindend oder antibindend ist. Eine Verschiebung von $\SI{180}{\degree}$ liegt bei antibindenden 
-        Zuständen vor, eine von $\SI{0}{\degree}$ bei bindenden. Diagramm zeigt die releveanten Phasen bei der größten Blendenöffung und einen Verdrillwinkel von $\alpha=\SI{180}{\degree}$ zwischen Lautsprecher und Mikrofon.
+        In Anologie zu den quantenmechanischen Molekülorbitalen kann nun anhand der Phasenverschiebung der Welle bei den Mikrofonen in der oberen und unteren Kugel festgestellt werden, ob der Zustand bindend oder antibindend ist. Eine Verschiebung von $\SI{180}{\degree}$ liegt bei antibindenden 
+        Zuständen vor, eine von $\SI{0}{\degree}$ bei bindenden. Diagramm \ref{fig:V_c_Oszigramm} zeigt die releveanten Phasen bei der größten Blendenöffung und einen Verdrillwinkel von $\alpha=\SI{180}{\degree}$ zwischen Lautsprecher und Mikrofon.\\
+
+        Phasendiagramm \ref{fig:V_c_Oszigramm} zeigt eine deutliche Phassendifferenz von $\SI{180}{\degree}$, womit das Druckorbital antibinded ist.
 
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.8\textwidth]{Bilddateien/Auswertung/IV_a_Spektren.jpg}
-            \caption{Der erste Resonanzpeak zwei gekoppelter Kugelresonatoren }
-            \label{fig:IV_a_Spektren}
+            \includegraphics[width=0.8\textwidth]{Bilddateien/Auswertung/V_c_Oszigramm.png}
+            \caption{Phasenverschiebung zwischen Mikrofron unten (violet), oben (blau) und Lautsprecher (gelb) beim doppelten Kugelresonator}
+            \label{fig:V_c_Oszigramm}
         \end{figure}
 
+    \paragraph{Höherenergetische Molekülorbitale}
+        Abbildung \ref{fig:IV_e_Spektren} zeigt nun das Spektrum höherer Frequenzen. Es sind bei beiden Drehwinkeln der Kugelhälften drei Peaks zu erkennen.
+        
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\textwidth]{Bilddateien/Auswertung/IV_e_Spektren.jpg}
+            \caption{Höherenergetisches Spektrum eines gekoppelten Kugelresonators mit zwei Verdrehwinkeln $\alpha$}
+            \label{fig:IV_e_Spektren}
+        \end{figure}
 
-\subsection{Der Rohresonator mit Blenden}
+        Zu erwarten sind hier Resonanzen, die $2\sigma$- und $1\pi$-Molekülorbitalen zuzuordnen sind (je als bindende und antibindende Variante). Eine der vier Resonanzen konnte also nicht beobachtet werden. Das Energieschema und die Amplitudenverteilung für die quantenmechanische Situation ist in \ref{fig:IV_e_Energieschema} dargestellt.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\textwidth]{Bilddateien/Auswertung/IV_e_Energieschema.jpg}
+            \caption{Energieschema von $2\sigma$- und $1\pi$-Molekülorbitalen}
+            \label{fig:IV_e_Energieschema}
+        \end{figure}
+
+        Nach diesem Schema sollte der fehlende Peak um $\SI{2450}{\hertz}$ auftreten mit einer ähnlichen Auflösung wie der erste Doppelpeak in \ref{fig:IV_e_Spektren}. Dies schließt eine zu geringe Auflösung als Ursache des Fehlens aus. Womöglich haben beide Druckzustände eine zu große Frequenzbreite in dem Versuchsaufbau, um überhaupt beobachtet zu werden.\\
+
+        Um den restlichen drei Peaks aber einem Molekülorbitale zuordnen zu können, werden folgens die jeweiligen Phasendiagramme betrachtet. In \ref{fig:IV_j_Phasendiagramme_2290} sind die Daten für den Peak bei $f=\SI{2295(20)}{\hertz}$ aufgeführt.
+
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}[b]{0.45\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Bilddateien/Auswertung/IV_j_Phasen2205_90Grad.jpg}
+                \caption{Phasendiagramm bei $\alpha=\SI{90}{\degree}$}
+                \label{fig:IV_j_Phasen2205_90Grad}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[b]{0.45\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Bilddateien/Auswertung/IV_j_Phasen2205_180Grad.jpg}
+                \caption{Phasendiagramm bei $\alpha=\SI{180}{\degree}$}
+                \label{fig:IV_j_Phasen2205_180Grad}
+            \end{subfigure}
+            \caption{Phasenverschiebungen des Peaks bei $f=\SI{2290(20)}{\hertz}$ in \ref{fig:IV_e_Spektren} beim doppelten Kugelresonator. Die Datenreihen 'oben' und 'unten' sind je die Schallstärke bei dem zugehörigen Mikrofonen}
+            \label{fig:IV_j_Phasendiagramme_2290}
+        \end{figure}
+
+        Es scheint fast keine Phasenverschiebung vorzuliegen, womit der Zustand bindend ist. Nach dem Energieschema \ref{fig:IV_e_Energieschema} ist der $2\sigma$-Zustand zu vermuten, da dieser die niedrigste Energie hat, was hier also bestätigt wird.\\
+        
+        Die Daten für $f=\SI{2306(20)}{\hertz}$ sind in \ref{fig:IV_j_Phasendiagramme_2306} aufgelistet.
+
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}[b]{0.45\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Bilddateien/Auswertung/IV_j_Phasen2306_0Grad.jpg}
+                \caption{Phasendiagramm bei $\alpha=\SI{0}{\degree}$}
+                \label{fig:IV_j_Phasen2306_0Grad}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[b]{0.45\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Bilddateien/Auswertung/IV_j_Phasen2306_90Grad.jpg}
+                \caption{Phasendiagramm bei $\alpha=\SI{90}{\degree}$}
+                \label{fig:IV_j_Phasen2306_90Grad}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.45\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Bilddateien/Auswertung/IV_j_Phasen2306_180Grad.jpg}
+                \caption{Phasendiagramm bei $\alpha=\SI{180}{\degree}$}
+                \label{fig:IV_j_Phasen2306_180Grad}
+            \end{subfigure}
+            \caption{Phasenverschiebungen des Peaks bei $f=\SI{2306(20)}{\hertz}$ in \ref{fig:IV_e_Spektren} beim doppelten Kugelresonator. Die Datenreihen 'oben' und 'unten' sind je die Schallstärke bei dem zugehörigen Mikrofonen}
+            \label{fig:IV_j_Phasendiagramme_2306}
+        \end{figure}
+
+        Es zeichnet sich eine recht deutliche Phasenverschiebung von $\SI{180}{\degree}$ ab, was einem antibindend Zustand entspricht. Jedoch sollte der Zustand mit der zweitniedrigsten Energie nach \ref{fig:IV_e_Energieschema} ein bindender sein. Möglicherweise liegt der vermisste theoretische Zustand gerade zwischen $f=\SI{2290(20)}{\hertz}$ und $f=\SI{2306(20)}{\hertz}$, aber dies scheint eine unwahrscheinlich ungleiche Verteilung der Resonanzfrequenzen zu sein. Da die Messung recht eindeutig ist, liegt entweder ein Fehler bei der Messdatenverwaltung vor, oder der experimentelle Aufbau unterschied sich deutlich von dem theoretischen Modell.\\
+
+        Zuletzt sind die Phasendiagramme für $f=\SI{2456(20)}{\hertz}$ in \ref{fig:IV_j_Phasendiagramme_2456} dargestellt.
+
+
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}[b]{0.45\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Bilddateien/Auswertung/IV_j_Phasen2456_0Grad.jpg}
+                \caption{Phasendiagramm bei $\alpha=\SI{0}{\degree}$}
+                \label{fig:IV_j_Phasen2456_0Grad}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[b]{0.45\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Bilddateien/Auswertung/IV_j_Phasen2456_90Grad.jpg}
+                \caption{Phasendiagramm bei $\alpha=\SI{90}{\degree}$}
+                \label{fig:IV_j_Phasen2456_90Grad}
+            \end{subfigure}
+            \caption{Phasenverschiebungen des Peaks bei $f=\SI{2456(20)}{\hertz}$ in \ref{fig:IV_e_Spektren} in \ref{fig:IV_e_Spektren} beim doppelten Kugelresonator. Die Datenreihen 'oben' und 'unten' sind je die Schallstärke bei dem zugehörigen Mikrofonen}
+            \label{fig:IV_j_Phasendiagramme_2456}
+        \end{figure}
+
+        Bei einem Verdrillwinkel von $\alpha=\SI{0}{\degree}$ ist die Phasenverschiebung eher $\SI{0}{\degree}$, bei $\alpha=\SI{90}{\degree}$ jedoch eher $\SI{90}{\degree}$. Wieder ist diese Diskrepanz recht extrem und liegt wohl entweder einen Datenverwaltungsfehler, oder einem kuriosen experimentellen Aufbau zugrunde.
+
+\subsection{Der Rohrresonator mit Blenden}
+    Spektrum \ref{fig:V_i_Resonanzspektrum_Lang} zeigt die Resonanzen eines langen Rohrs mit und ohne Blenden. Zu erkennen sind Häufungen von ca. 8 Peaks, die mit Lücken voneinander getrennt sind.
+
     \paragraph{Tight-Binding-Methode}
         \begin{figure}[H]
             \centering
@@ -434,6 +535,12 @@
             \label{fig:V_i_Resonanzspektrum_Lang}
         \end{figure}
 
+        Allgmein ergab eine Untersuchung der Spektren für verschiedene Zahlen von $n\in\N$ Blenden, dass ein Peak in $n + 1$ Peaks aufgespalten wird. Dies lässt sich verstehen als Aufhebung einer Entartung. Im Fall ohne Blenden ist eine einzelne Druckmode eine Überlagerung mehrerer Schwingungen gleicher Druck-, aber anderer Geschwindigkeitsverteilungen.
+
+        Werden nun Blenden eingesetzt, so sind diese Schwingungen mit einem Geschwindigkeitsknoten an den Blendenpositionen völlig ungestört dadurch. Je öfters aber ein Geschwindigkeitsbauch auftritt, desto stärker wird die Schwingung gestört, was zu einer anderen kinetischen Energie und somit Resonanfrequenz führt. Die Druckmode wird aufgespalten.\\
+
+        Über den Zusammenhang $k_n = \frac{2\pi}{c}\cdot f_n$ und $f_n =\frac{n\cdot c}{2L}$ lässt sich nun der theoretische Wellenvekor der einzelnen Resonanzen berechnen. Diagramm \ref{fig:V_j_Dispersionsrelation_Lang} zeigt die Ergebnisse, über die die realen Resonanzenfrequenzen aufgetragen wurden.
+
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.8\textwidth]{Bilddateien/Auswertung/V_j_Dispersionsrelation_Lang.jpg}
@@ -441,14 +548,22 @@
             \label{fig:V_j_Dispersionsrelation_Lang}
         \end{figure}
 
+        Ohne Blenden zeigt die Dispersionsrelation den erwarteten linearen Verlauf. Hinzufügen von Blenden resultiert aber in Lücken zwischen den beobachten Frequenzen und einer Verzerrung der Kurve. Die Lücken werden kleiner bei einer größeren Zahl an Blenden (weil dort mehr Resonanzen auftreten), bleiben aber bestehen. Die Verzerrung der Kurvensegmente hinzu einer $S$-Form deutet auf verstärkte Nichtlinearitäten hin. Zum Beispiel sorgt das Eigenvolumen der Blenden dafür, dass die Länge des Rohrs nicht exakt $L$ ist. Insgesamt bestätigen die Ergebnisse also das Bändermodell. 
+
 
     \paragraph{Schwaches periodisches Potential}
+        Spektrum \ref{fig:V_l_Dispersionsrelation_Kurz} zeigt wieder die Resonanzen eines Rohrs mit und ohne Blenden, diesmal aber mit kürzerer Segmentlänge. Dementsprechend ist eine Aufspaltung in mehr Peaks zu beobachten.
+
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.8\textwidth]{Bilddateien/Auswertung/V_l_Resonanzspektrum_Kurz.jpg}
             \caption{Resonanzspektrum eines 12-segmentigen Rohrs der Segmentlänge $\SI{50}{\milli\metre}$, einmal mit sieben Blenden und einmal ohne}
             \label{fig:V_l_Resonanzspektrum_Kurz}
         \end{figure}
+
+        Noch deutlicher als in \ref{fig:V_i_Resonanzspektrum_Lang} sind hier die Unregelmäßigkeit innerhalb des ersten Resonanzbands. Vermutlich liegt das an Umbegungsgeräuschen im Bereich niedriger Frequenzen.\\
+
+        Die Dispersionsrelation ist in \ref{fig:V_l_Dispersionsrelation_Kurz} dargestellt. Wieder ist ein linearer Verlauf ohne Blenden zu erkennen, mit Blenden ist besser zu erkennen, wie die erlaubten Resonanzen in der Nähe der Bandlücken abflachen.
 
         \begin{figure}[H]
             \centering
@@ -457,10 +572,12 @@
             \label{fig:V_l_Dispersionsrelation_Kurz}
         \end{figure}
 
+        Wird ein kurzes Rohrsegment durch ein langes ersetzt, ergibt sich der Verlauf in \ref{fig:V_o_Resonanzspektrum_Dotiert}. Der qualitative Bandverlauf bleibt erhalten, allerdings verschieben sich die Maxima innerhalb der Bände leicht und haben zum Teil eine kleinere Amplitude. Durch die Störung der Periodizät können sich vermutlich nicht in jeder Mode ebenso starke Druckamplituden ausbilden wie in \ref{fig:V_l_Resonanzspektrum_Kurz}.
+
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.8\textwidth]{Bilddateien/Auswertung/V_o_Resonanzspektrum_Dotiert.jpg}
-            \caption{Vergleich des Rohrs aus \ref{V_l_Resonanzspektrum_Kurz} (12 Segmente) mit einen, dass 11 kurze Segmente und an der achten Stelle ein Segment der Länge $\SI{75}{\milli\metre}$ hat}
+            \caption{Vergleich des Rohrs aus \ref{fig:V_l_Resonanzspektrum_Kurz} (12 Segmente) mit einen, dass 11 kurze Segmente und an der achten Stelle ein Segment der Länge $\SI{75}{\milli\metre}$ hat}
             \label{fig:V_o_Resonanzspektrum_Dotiert}
         \end{figure}
 

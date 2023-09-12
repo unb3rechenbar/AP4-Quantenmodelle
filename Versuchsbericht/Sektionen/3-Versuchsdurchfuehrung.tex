@@ -1,6 +1,58 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
     
+\subsection{Der Rohrresonator}
+    Zuerst wird ein einzelnes Rohrsegment der Länge $\SI{12.5}{\milli\metre}$ mit Lautsprecher und Mikrofon verbunden und anschließend werden Schallwellen von $\SI{0}{\hertz}$ bis $\SI{10000}{\hertz}$ durch den  Lautsprecher ausgestrahlt und die Druckamplitude am Mikrofon aufgenommen. So ergibt sich die Transferfunktion des Mikrofons.\\
 
-   
+    Weiter werden folgende Rohrkonfigurationen untersucht bei einer Segmetlänge von $\SI{75}{\milli\metre}$:
+    \begin{itemize}
+        \item Acht Segmente (einmal werden die Resonanzen durch manuelle Bedienung des Frequenzgenerators bestimmt, einmal wird ein computergesteuertes Spektum von $\SI{0}{\hertz}$ bis $\SI{20000}{\hertz}$ aufgenommen)
+        \item Zwei Segmente (hier wird nur ein Spektrum wie im vorigen Punkt aufgenommen)
+    \end{itemize}
+
+\subsection{Der Kugelresonator ohne Zwischenringe}
+    Nun wird der Rohresonator ersetzt durch zwei verdrehbare Halbkugeln aus Metall. Der Lautsprecher befinde sich in der oberen Halbkugel, das Mikrofon in der unteren. Der Verdrehwinkel zwischen beiden Halbkugeln wird folgens mit $\alpha$ bezeichnet.\\
+
+    Es wird ein Spektrum von $\SI{100}{\hertz}$ bis $\SI{10000}{\hertz}$ aufgenommen bei $\alpha\in\{\SI{0}{\degree}, \SI{60}{\degree}, \SI{120}{\degree}, \SI{180}{\degree}\}$. Dadurch lässt sich messen, wie resistent die Resonanzen gegenüber leichten Veränderungen der Symmetrie des Kugelresonators sind.\\
+
+    Weiter wird ein Spektrum von $\SI{1200}{\hertz}$ bis $\SI{7000}{\hertz}$ aufgenommen ($\alpha=\SI{180}{\degree}$) und vier Resonanzen werden ausgewählt. Mit dem Programm \textit{SpectrumSLC} werden für diese Polschnitte aufgenommen, das heißt die Druckverteilung am Mikrofon für verschiedene $\alpha$ bis $\SI{90}{\degree}$ aber mit der konstanten Resonanzfrequenz. Es wird auch je ein Polschnitt leicht neben der jeweiligen Resonanzfrequenz aufgenommen zum Vergleich der Datensets.\\
+
+    Zuletzt wird das Doppelmaximum bei grob $\SI{5000}{\hertz}$ für $\alpha\in\{\SI{0}{\degree},\SI{180}{\degree}\}$ aufgezeichnet sowie zwei Polschnitte dort.
+
+\subsection{Der Kugelresonator mit Zwischenringen}
+    Für diesen Abschnitt wird ein Zwischenring der Dicke $\SI{9}{\milli\metre}$ zwischen die Halbkugeln gelegt. Das Spektrum von $\SI{1200}{\hertz}$ bis $\SI{7000}{\degree}$ bei $\alpha=\SI{180}{\degree}$ wird zum Verlgeich nochmals aufgenommen.\\
+    
+    Anschließend werden Azimutalschnitte (analog zu den Polschnitten) für die Resonanzen bei ungefähr $\SI{2100}{\hertz}$, $\SI{2300}{\hertz}$, $\SI{3300}{\hertz}$ und $\SI{3800}{\hertz}$ vermessenn.\\
+
+    Schließlich wird ein Spektrum von $\SI{2000}{\hertz}$ bis $\SI{2400}{\hertz}$ für Zwischenringe der Dicke $d\in\{\SI{0}{\milli\metre}, \SI{3}{\milli\metre}, \SI{6}{\milli\metre}, \SI{9}{\milli\metre}\}$ erstellt ($\alpha=\SI{180}{\degree}$), um die Abhängigkeit auftretender Peakaufspaltungen von $d$ zu ermitteln.
+
+\subsection{Das Wasserstoffmolekül}
+    Zum Ende wird noch die Transferfunktion des Kugelresonators (ohne Zwischenringe) bestimmt, indem ein Spektrum von $\SI{0}{\hertz}$ bis $\SI{10000}{\hertz}$ bei $\alpha=\SI{180}{\degree}$ erstellt wird.\\
+    
+    Danach werden zwei Sets von Kugelresonatoren aufeinander aufgebaut, wobei diese in der Mitte mit einer Blende verbunden sind. Damit das Verhalten der Resonanzen bei verschiedenen Blenden untersucht werden kann, wird ein Spektrum von $\SI{0}{\hertz}$ bis $\SI{1000}{\hertz}$ aufgenommen für Blendendurchmesser von $D\in\{\SI{5.5}{\milli\metre}, \SI{11}{\milli\metre}, \SI{15}{\milli\metre}, \SI{20}{\milli\metre}\}$. Die größte Blende wird am Ende wieder eingesetzt.\\
+    
+    Weiter werden Lautsprecher, sowie ein Mikrofon in der untersten Kugelhälfte und in der obersten mit einem Oszilloskop verbunden und ein Phasendiagramm aufgenommen bei der Resonanzfrequenz des zuvor erstellen Spektrums.\\
+
+    Anschließend werden Spektren von $\SI{2000}{\hertz}$ bis $\SI{3000}{\hertz}$ bei $\alpha=\SI{0}{\degree}$ und $\alpha=\SI{180}{\degree}$ verzeichnet und für alle aufzufindenden Resonanzen wird ebenfalls ein Phasendiagramm aufgezeichnet.
+    
+\subsection{Der Rohrresonator mit Blenden}
+    Zuletzt werden noch einige Spektren für den Rohresonator mit Blenden (Durchmesser $\SI{16}{\milli\metre}$) zwischen einzelnen Rohrsegmenten aufgenommen. Für eine Segmentelänge von $\SI{75}{\milli\metre}$ werden folgende Konfigurationen untersucht:
+    \begin{itemize}
+        \item Ein Segment, keine Blende.
+        \item Zwei Segmente, eine Blende. 
+        \item Drei Segmente, zwei Blenden.
+        \item Vier Segmente, drei Blenden.
+        \item Acht Segmente, sieben Blenden.
+        \item Acht Segmente, keine Blenden.
+    \end{itemize}
+
+    Für eine Segmentlänge von $\SI{50}{\milli\metre}$ wurde hingegen untersucht:
+    \begin{itemize}
+        \item Zwölf Segmente, elf Blenden.
+        \item Zwölf Segmente (mit einem der Länge $\SI{75}{\milli\metre}$ an der achten Stelle), elf Blenden.
+        \item Zwölf Segmente, keine Blenden.
+    \end{itemize}
+    
+    Die zweite Konfigurationen dient der Beobachtung von dotierten periodischen Strukturen.
+
 \end{document}
